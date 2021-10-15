@@ -3,10 +3,9 @@ const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
 const db = require('./config/connection');
 const { typeDefs, resolvers } = require('./schemas');
-const { Mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 require('dotenv').config()
 
-Mongoose.connect('')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
