@@ -3,8 +3,6 @@ const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
 const db = require('./config/connection');
 const { typeDefs, resolvers } = require('./schemas');
-const mongoose = require('mongoose');
-require('dotenv').config()
 
 
 const app = express();
