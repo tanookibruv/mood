@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+// we can remove or restyle this page to use as an error
+
 function NotFound() {
   let location = useLocation();
   return (
