@@ -8,19 +8,8 @@ const typeDefs = gql`
     note: String!
   }
 
-  type Matchup {
-    _id: ID!
-    user1: String!
-    user2: String!
-  }
-
   type Query {
-    tech: [User]
-    matchups(_id: String): [Matchup]
-  }
-
-  type Mutation {
-    createMatchup(user1: String!, user2: String!): Matchup
+    user: [User]
   }
 `;
 

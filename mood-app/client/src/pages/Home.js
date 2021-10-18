@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
 
+//need to make changes on home page for it appear once logged in to show user their week log of moods and ability to add a mood and note for the day
+
 const Home = () => {
   const { loading, data } = useQuery(QUERY_USER, {
     fetchPolicy: "no-cache"

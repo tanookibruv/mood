@@ -4,6 +4,8 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
+//must import login page and routes
+
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
