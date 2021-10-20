@@ -1,13 +1,17 @@
 [
   {
-    "name": "",
-    "mood": "",
-    "note": ""
-    
-  },
-  {
     "name": "Esteban",
     "mood": "meh",
     "note": "Today was a decent day"
+  },
+  {
+    "name": "Abi",
+    "mood": "meh",
+    "note": "My dad's annoying"
+  },
+  {
+    "name": "Kevin",
+    "mood": "sad",
+    "note": "One last pic and I'll be gone, make it count with the flash on"
   }
 ]

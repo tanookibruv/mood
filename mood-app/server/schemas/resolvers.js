@@ -1,11 +1,16 @@
 const { User } = require('../models');
 
 //need to add a return to generate USER information once logged in
+// currently working on add notes and moods for user.
 
 const resolvers = {
   Query: {
-    user: async () => {
-      return User.find({});
+    users: async () => {
+      return User.find();
+    },
+
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
     },
   },
 };
