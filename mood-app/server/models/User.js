@@ -8,12 +8,11 @@ const userSchema = new Schema({
     trim: true
   },
   mood: {
-    type: String,
-    required: true
+    type: String
   },
   note: {
     type: String,
-    required: true
+    trim: true
   }
 });
 
