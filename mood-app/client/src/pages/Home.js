@@ -9,7 +9,8 @@ const Home = () => {
     fetchPolicy: "no-cache"
   });
 
-  const userList = data?.user || [];
+  const user = data?.users || [];
+  console.log(user)
 
   return (
     <div className="card bg-white card-rounded w-50">
@@ -22,11 +23,11 @@ const Home = () => {
           <div>Loading...</div>
         ) : (
           <ul className="square">
-            {userList.map((user) => {
+            {user.map((users) => {
               return (
-                <li key={user._id}>
-                  <Link to={{ pathname: `/user/${user._id}` }}>
-                    {user.user1}
+                <li key={user.name}>
+                  <Link to={{ pathname: `/user/${user}` }}>
+                    {user.name}
                   </Link>
                 </li>
               );
