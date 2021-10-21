@@ -7,7 +7,7 @@ const resolvers = {
   Query: {
     users: async () => {
       console.log('testing')
-      return User.find();
+      return await User.find();
     },
 
     user: async (parent, { userId }) => {

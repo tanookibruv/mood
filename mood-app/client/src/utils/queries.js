@@ -4,11 +4,10 @@ import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
   query user {
-    user {
+    users {
       _id
-      name
-      mood
+		  name
       note
-    }
   }
+}
 `;
