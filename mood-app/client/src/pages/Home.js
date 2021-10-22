@@ -24,25 +24,25 @@ const Home = () => {
       </div>
       <div className="card-body m-5">
         <h2>How was your day?</h2>
-        <div class='mood-images'>
+        <div className='mood-images'>
           <img src={happy} alt="happy" width='100px' />
           <img src={meh} alt="meh" width='100px' />
           <img src={sad} alt="sad" width='100px' />
           <img src={angry} alt="happy" width='100px' />
         </div>
         <form>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">What is your mood?</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">What is your mood?</label>
+            <select className="form-control" id="exampleFormControlSelect1">
               <option>Happy</option>
               <option>Meh</option>
               <option>Sad</option>
               <option>Angry</option>
             </select>
           </div>
-          <div class="form-group">
+          <div className="form-group">
 
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
           </div>
         </form>
       </div>
