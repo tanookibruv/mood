@@ -1,1 +1,0 @@
-//main page for site -- once more pages are added remove this note --

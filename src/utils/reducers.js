@@ -1,1 +1,0 @@
-// all functions ran from reducers file.

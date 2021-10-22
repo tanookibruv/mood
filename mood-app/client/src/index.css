@@ -1437,6 +1437,13 @@ label form [type='radio'] {
   .align-content-center-sm {
     align-content: center;
   }
+  .mood-images {
+    display: flex;
+    justify-content: center;
+  }
+  #exampleFormControlTextarea1 {
+    min-width: 240px;
+  }
 }
 
 /* col-md */
@@ -1531,6 +1538,9 @@ label form [type='radio'] {
   }
   .align-content-center-md {
     align-content: center;
+  }
+  #exampleFormControlTextarea1 {
+    min-width: 300px;
   }
 }
 
@@ -1627,6 +1637,9 @@ label form [type='radio'] {
   .align-content-center-lg {
     align-content: center;
   }
+  #exampleFormControlTextarea1 {
+    min-width: 425px;
+  }
 }
 
 /* col-xl */
@@ -1718,4 +1731,17 @@ label form [type='radio'] {
   .align-content-center-xl {
     align-content: center;
   }
+  #exampleFormControlTextarea1 {
+    min-width: 550px;
+  }
 }
+
+.mood-images {
+  display: flex;
+  justify-content: center;
+}
+
+/* #exampleFormControlTextarea1 {
+  max-width: 1025px;
+  min-width: 550px;
+} */
