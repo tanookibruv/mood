@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+// import Login from './pages/login';
 
 //must import login page and routes
 
@@ -20,6 +21,9 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
+            {/* <Route>
+              <Login />
+            </Route> */}
             <Route>
               <NotFound />
             </Route>

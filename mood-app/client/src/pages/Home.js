@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
+import 'react-bootstrap'
+import happy from '../assets/happy.png';
+import meh from '../assets/meh.png';
+import sad from '../assets/sad.png';
+import angry from '../assets/angry.png';
 
 //need to make changes on home page for it appear once logged in to show user their week log of moods and ability to add a mood and note for the day
 
@@ -10,7 +15,7 @@ const Home = () => {
   });
 
   const userList = data?.user || [];
-
+  
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
@@ -33,6 +38,27 @@ const Home = () => {
             })}
           </ul>
         )}
+        <div class='mood-images'>
+        <img src={happy} alt="happy" width='100px'/>
+        <img src={meh} alt="meh" width='100px'/>
+        <img src={sad} alt="sad" width='100px'/>
+        <img src={angry} alt="happy" width='100px'/>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">What is your mood?</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Happy</option>
+              <option>Meh</option>
+              <option>Sad</option>
+              <option>Angry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+          </div>
+        </form>
       </div>
       <div className="card-footer text-center m-3">
         <h2>Ready to create a new log?</h2>
