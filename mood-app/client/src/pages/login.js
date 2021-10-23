@@ -1,51 +1,91 @@
-// // need to set up a login page with authentication use JWT and connect with the rest of the app
-// import React, { useState } from 'react';
-// // import { eventNames } from '../../../server/models/User';
-// import './login.css';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 
-// export default function Login() {
-//     const [username, setUsername] = useState("")
-//     const [password, setPassword] = useState("")
+import Auth from '../utils/auth';
 
-//     function handleUsernameInput(event) {
-//         event.preventDefault()
-//         setUsername(event.target.value)
-//     }
 
-//     function handlePasswordInput(event) {
-//         event.preventDefault()
-//         setPassword(event.target.value)
-//     }
+const Login = (props) => {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error, data }] = useMutation(LOGIN_USER);
 
-//     return(
-//         <div class='login'>
-//             <h1>Login</h1>
-//             <form>
-//                 <label>
-//                     <p>Username</p>
-//                     <input 
-//                         type='email'
-//                         placeholder='Email'
-//                         name='email'
-//                         value={setUsername}
-//                         onChange={handleUsernameInput}
-//                     />
-//                 </label>
-//                 <label>
-//                     <p>Password</p>
-//                     <input 
-//                         type='password' 
-//                         placeholder='Password'
-//                         name='password'
-//                         value={setPassword}
-//                         onChange={handlePasswordInput}
-//                     />
-//                 </label>
-//                 <div>
-//                     <button type='submit'>Submit</button>
-//                 </div>
-//             </form>
-//         </div>
-//     )
-// }
-// eslint-disable-next-line
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
+
+    const handleLoginSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const { data } = await login({
+                variables: { ...formState },
+            });
+
+            Auth.login(data.login.token);
+        } catch (e) {
+            console.error(e)
+        }
+
+        setFormState({
+            email: '',
+            password: '',
+        });
+    };
+
+    return (
+        <div class='login'>
+            <h1>Login</h1>
+            <div className="card-body">
+                {data ? (
+                    <p>
+                        Logged In!
+                        <Link to='/'></Link>
+                    </p>
+                ) : (
+                    <form onSubmit={handleLoginSubmit}>
+                        <label>
+                            <p>Username</p>
+                            <input
+                                className="form-input"
+                                type='email'
+                                placeholder='Email'
+                                name='email'
+                                value={formState.email}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            <p>Password</p>
+                            <input
+                                className="form-input"
+                                type='password'
+                                placeholder='Password'
+                                name='password'
+                                value={formState.Password}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <div>
+                            <button type='submit'>Submit</button>
+                        </div>
+                    </form>
+                )};
+
+                {error && (
+                    <div className="my-3 p-3 bg-danger text-white">
+                        {error.message}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+
+export default Login;

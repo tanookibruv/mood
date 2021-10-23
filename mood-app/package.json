@@ -16,6 +16,9 @@
     "concurrently": "^5.3.0"
   },
   "dependencies": {
+    "express-jwt": "^6.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "react-bootstrap": "^2.0.0"
   }
 }

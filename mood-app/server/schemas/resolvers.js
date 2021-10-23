@@ -7,11 +7,13 @@ const resolvers = {
   Query: {
     users: async () => {
       console.log('testing')
-      return User.find();
+      return await User.find();
     },
 
     user: async (parent, { userId }) => {
+      if (context.user) {
       return User.findOne({ _id: userId });
+      }
     },
   },
 };

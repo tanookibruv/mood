@@ -10,12 +10,12 @@ import angry from '../assets/angry.png';
 //need to make changes on home page for it appear once logged in to show user their week log of moods and ability to add a mood and note for the day
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_USER, {
+  const { data } = useQuery(QUERY_USER, {
     fetchPolicy: "no-cache"
   });
-
-  const user = data?.users || [];
-  console.log(user)
+  console.log(data)
+  const storedUser = data?.users || [];
+  console.log(storedUser)
 
   return (
     <div className="card bg-white card-rounded w-50">
@@ -24,46 +24,31 @@ const Home = () => {
       </div>
       <div className="card-body m-5">
         <h2>How was your day?</h2>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <ul className="square">
-            {user.map((users) => {
-              return (
-                <li key={user.name}>
-                  <Link to={{ pathname: `/user/${user}` }}>
-                    {user.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-        <div class='mood-images'>
-        <img src={happy} alt="happy" width='100px'/>
-        <img src={meh} alt="meh" width='100px'/>
-        <img src={sad} alt="sad" width='100px'/>
-        <img src={angry} alt="happy" width='100px'/>
+        <div className='mood-images'>
+          <img src={happy} alt="happy" width='100px' />
+          <img src={meh} alt="meh" width='100px' />
+          <img src={sad} alt="sad" width='100px' />
+          <img src={angry} alt="happy" width='100px' />
         </div>
         <form>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">What is your mood?</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">What is your mood?</label>
+            <select className="form-control" id="exampleFormControlSelect1">
               <option>Happy</option>
               <option>Meh</option>
               <option>Sad</option>
               <option>Angry</option>
             </select>
           </div>
-          <div class="form-group">
-            
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+          <div className="form-group">
+
+            <textarea className="form=control col-12" id="noteTextArea" rows="5"></textarea>
           </div>
         </form>
       </div>
       <div className="card-footer text-center m-3">
         <h2>Ready to create a new log?</h2>
-        <Link to="/newlog">
+        <Link to="/login">
           <button className="btn btn-lg btn-danger">Create Log</button>
         </Link>
       </div>
