@@ -42,13 +42,13 @@ const Home = () => {
           </div>
           <div className="form-group">
 
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            <textarea className="form=control col-12" id="noteTextArea" rows="5"></textarea>
           </div>
         </form>
       </div>
       <div className="card-footer text-center m-3">
         <h2>Ready to create a new log?</h2>
-        <Link to="/newlog">
+        <Link to="/login">
           <button className="btn btn-lg btn-danger">Create Log</button>
         </Link>
       </div>

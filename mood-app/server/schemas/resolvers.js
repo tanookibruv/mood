@@ -11,7 +11,9 @@ const resolvers = {
     },
 
     user: async (parent, { userId }) => {
+      if (context.user) {
       return User.findOne({ _id: userId });
+      }
     },
   },
 };
